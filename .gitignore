@@ -107,5 +107,5 @@
 # Signal taps
 *.stp
 
-**/led_chaser/led_chaser_sys*
+**/led_chaser/led_chaser_sys/*
 
