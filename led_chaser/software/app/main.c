@@ -1,7 +1,34 @@
 #include "system.h"
 #include "altera_avalon_pio_regs.h"
 #include "sys/alt_stdio.h"
+#include "sys/alt_irq.h"
+#include "alt_types.h"
+#include "io.h"
+#include "unistd.h"
 
+static void irqhandler(void * context, alt_u32 id){
+	alt_printf("Dans main\n");
+}
+
+int main(){
+	
+	alt_printf("Dans main\n");
+	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(PIO_1_IRQ, 0x0F);
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(PIO_1_IRQ, 0x00);
+	alt_irq_register(PIO_1_IRQ,NULL, (void*)irqhandler);
+	while(1){
+		
+	}
+	
+	return 0;
+}
+
+
+
+
+
+
+/*
 int main(){
 	
 	int addr = 0x01;
@@ -42,3 +69,4 @@ int main(){
 	}
 }
 
+*/
