@@ -108,4 +108,7 @@
 *.stp
 
 **/led_chaser/led_chaser_sys/*
+**/lets_count_stuff/lets_count_stuff_sys/*
+
+
 
